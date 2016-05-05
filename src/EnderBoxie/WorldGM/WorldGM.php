@@ -29,4 +29,12 @@ class WorldGM extends PluginBase{
         return $i[$level->getName()];
     }
 
+    public function getJoinGamemode(){
+        return (int) $this->cfg->get('join.gamemode');
+    }
+
+    public function getDefaultGamemode(){
+        return (int) $this->cfg->get('default.gamemode');
+    }
+
 }
