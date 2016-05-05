@@ -2,6 +2,7 @@
 namespace EnderBoxie\WorldGM;
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\level\Level;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as TF;
 
@@ -18,6 +19,14 @@ class WorldGM extends PluginBase{
 
     public function getGamemodes(){
         return (array) $this->cfg->get('gamemodes');
+    }
+
+    public function getGamemode(Level $level){
+        $i = $this->getGamemodes();
+        if(!isset($i[$level->getName()])){
+            return false;
+        }
+        return $i[$level->getName()];
     }
 
 }
