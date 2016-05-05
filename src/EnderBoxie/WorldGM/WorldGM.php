@@ -1,0 +1,1 @@
+namespace EnderBoxie\WorldGM;
