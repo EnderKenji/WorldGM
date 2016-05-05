@@ -3,6 +3,7 @@ namespace EnderBoxie\WorldGM;
 
 use pocketmine\Player;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
 use pocketmine\level\Level;
 
@@ -19,9 +20,15 @@ class WorldGMListener implements Listener{
             return;
         }
         if(!array_key_exists($target->getName(), $this->plugin->getGamemodes())){
+            $p->setGamemode($this->plugin->getDefaultGamemode());
             return;
         }
         $p->setGamemode($this->plugin->getGamemode($target));
+    }
+
+    public function onJoin(PlayerJoinEvent $event){
+        $p = $event->getPlayer();
+        $p->setGamemode($this->plugin->getJoinGamemode());
     }
 
 }
