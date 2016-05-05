@@ -1,2 +1,5 @@
 
-gamemodes: []
+# List of gamemodes in worlds
+gamemodes: 
+  plot: 1
+  lobby: 0
