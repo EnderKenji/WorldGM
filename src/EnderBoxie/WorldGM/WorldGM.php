@@ -23,9 +23,6 @@ class WorldGM extends PluginBase{
 
     public function getGamemode(Level $level){
         $i = $this->getGamemodes();
-        if(!isset($i[$level->getName()])){
-            return false;
-        }
         return $i[$level->getName()];
     }
 
