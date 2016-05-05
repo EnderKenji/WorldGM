@@ -15,9 +15,13 @@ class WorldGMListener implements Listener{
     public function onLevelChange(EntityLevelChangeEvent $event){
         $p = $event->getEntity();
         $target = $event->getTarget();
-        if($p instanceof Player){
-            // To-Do
+        if(!$p instanceof Player){
+            return;
         }
+        if(!array_key_exists($target->getName(), $this->plugin->getGamemodes())){
+            return;
+        }
+        $p->setGamemode($this->plugin->getGamemode($target));
     }
 
 }
