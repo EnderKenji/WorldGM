@@ -9,5 +9,15 @@ class WorldGM extends PluginBase{
     
     public $cfg;
     
-    public function onEnable(){}
+    public function onEnable(){
+        $this->saveResource('config.yml');
+        $this->cfg = new Config($this->getDataFolder() . 'config.yml', Config::YAML, array());
+        $this->getLogger()->info(TF::GREEN . 'WorldGM is ready!');
+        $this->getServer()->getPluginManager()->registerEvents(new WorldGMListener($this), $this);
+    }
+
+    public function getGamemodes(){
+        return (array) $this->cfg->get('gamemodes');
+    }
+
 }
