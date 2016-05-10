@@ -33,8 +33,4 @@ class WorldGM extends PluginBase{
     public function getDefaultGamemode(){
         return (int) $this->cfg->get('default.gamemode');
     }
-
-    public function clearInventory(){
-        $player->getInventory()->clearAll();
-    }
   }
