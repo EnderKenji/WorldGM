@@ -29,6 +29,8 @@ class WorldGMListener implements Listener{
     public function onJoin(PlayerJoinEvent $event){
         $p = $event->getPlayer();
         $p->setGamemode($this->plugin->getJoinGamemode());
+    } else if($this->plugin->getJoinGamemode == 0){
+        $p->getInventory()->clearAll();
     }
 
 }
